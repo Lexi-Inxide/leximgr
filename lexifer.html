@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lexifer | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:#000;color:#fff;overflow-x:hidden}
+
+#bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.overlay{position:fixed;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.82));z-index:-1}
+
+.cursor{
+position:fixed;
+width:220px;
+height:220px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(255,50,50,.18),transparent 70%);
+filter:blur(40px);
+pointer-events:none;
+z-index:999;
+}
+
+nav{
+position:fixed;
+top:18px;
+left:50%;
+transform:translateX(-50%);
+width:92%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 28px;
+background:rgba(255,255,255,.07);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.12);
+border-radius:60px;
+z-index:100;
+}
+
+.nav-logo{
+font-family:'Great Vibes',cursive;
+font-size:38px;
+color:#fff;
+text-decoration:none;
+text-shadow:0 0 12px rgba(255,70,70,.45);
+}
+
+nav ul{display:flex;gap:28px;list-style:none}
+.nav-link{color:#fff;text-decoration:none}
+.nav-link:hover{color:#ff3b3b}
+
+.music-btn{
+position:fixed;
+top:92px;
+right:28px;
+width:52px;
+height:52px;
+border-radius:50%;
+border:1px solid rgba(255,255,255,.25);
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(18px);
+color:#fff;
+font-size:20px;
+cursor:pointer;
+z-index:120;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:80px;
+padding:120px 8%;
+flex-wrap:wrap;
+}
+
+.profile{
+width:320px;
+height:320px;
+border-radius:30px;
+overflow:hidden;
+border:2px solid rgba(255,70,70,.5);
+box-shadow:0 0 18px rgba(255,70,70,.35);
+animation:f 6s ease-in-out infinite;
+}
+
+.profile img{width:100%;height:100%;object-fit:cover}
+@keyframes f{50%{transform:translateY(-12px)}}
+
+.hero-name{
+font-family:'Great Vibes',cursive;
+font-size:95px;
+text-shadow:0 0 15px rgba(255,70,70,.45);
+}
+
+.tagline{margin-top:12px;font-size:18px;color:#ffd1d1}
+.hero p{margin:24px 0;line-height:1.8;color:#ddd;max-width:560px}
+
+.buttons{display:flex;gap:15px;flex-wrap:wrap}
+
+.btn{
+padding:14px 30px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.primary{background:#ff3b3b;color:#fff}
+.secondary{border:2px solid rgba(255,70,70,.6);color:#fff}
+.btn:hover{transform:translateY(-3px)}
+
+section{padding:90px 8%}
+.title{text-align:center;font-size:42px;margin-bottom:50px;letter-spacing:3px}
+
+.download-grid,.social-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:28px;
+max-width:1100px;
+margin:auto;
+}
+
+.card,.social{
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.12);
+border-radius:28px;
+padding:28px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover,.social:hover{
+transform:translateY(-8px);
+box-shadow:0 0 24px rgba(255,60,60,.25);
+}
+
+/* ===== Premium Download Cards ===== */
+.featured-card{position:relative;overflow:hidden;background:rgba(255,255,255,.08);backdrop-filter:blur(28px);border:1px solid rgba(255,80,80,.35);border-radius:28px;box-shadow:0 0 30px rgba(255,60,60,.30), inset 0 0 30px rgba(255,255,255,.03);} 
+.featured-card::before{content:"";position:absolute;inset:-40%;background:linear-gradient(45deg,transparent,rgba(255,255,255,.15),transparent);animation:shine 5s linear infinite;transform:rotate(20deg);z-index:0;pointer-events:none;} .featured-card>*{position:relative;z-index:2;} @keyframes shine{from{transform:translateX(-120%) rotate(20deg);}to{transform:translateX(120%) rotate(20deg);}} .featured-icon{width:90px;height:90px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;border-radius:24px;background:rgba(255,50,50,.18);border:1px solid rgba(255,80,80,.35);box-shadow:0 0 22px rgba(255,60,60,.45);} .featured-icon i{font-size:42px;color:#ff5a5a;} .badge{display:inline-block;padding:8px 18px;border-radius:40px;margin-bottom:15px;background:rgba(255,50,50,.18);border:1px solid rgba(255,80,80,.35);color:#ffd4d4;font-size:12px;font-weight:700;letter-spacing:1px;} .featured-btn{background:linear-gradient(135deg,#ff1f1f,#ff5f5f);box-shadow:0 0 20px rgba(255,60,60,.45);} .featured-btn:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 0 35px rgba(255,60,60,.7);} .icon{
+width:80px;
+height:80px;
+border-radius:22px;
+margin:0 auto 20px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(255,60,60,.12);
+border:1px solid rgba(255,70,70,.25);
+}
+
+.icon i{font-size:36px;color:#ff4d4d}
+
+.card h3{font-size:28px;margin-bottom:12px}
+.card p{color:#cfcfcf;line-height:1.7;margin-bottom:20px}
+
+.download-btn,.discord-btn{
+display:block;
+text-decoration:none;
+color:#fff;
+padding:14px;
+border-radius:50px;
+margin-top:12px;
+font-weight:600;
+transition:.3s;
+}
+
+.download-btn{background:#ff3b3b}
+
+.featured-btn{
+background:linear-gradient(135deg,#ff2d2d,#ff5e5e);
+box-shadow:0 0 18px rgba(255,60,60,.45);
+}
+
+.featured-btn:hover{
+transform:translateY(-3px) scale(1.03);
+box-shadow:0 0 30px rgba(255,60,60,.6);
+}
+
+.discord-btn{
+display:block;
+text-decoration:none;
+color:#fff;
+padding:14px;
+border-radius:50px;
+margin-top:12px;
+font-weight:600;
+transition:all .35s ease;
+background:#5865F2;
+position:relative;
+overflow:hidden;
+box-shadow:0 0 15px rgba(88,101,242,.25);
+}
+
+/* Shine effect */
+.discord-btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:60%;
+height:100%;
+background:linear-gradient(
+  120deg,
+  transparent,
+  rgba(255,255,255,.35),
+  transparent
+);
+transition:.5s;
+}
+
+/* Hover effect */
+.discord-btn:hover{
+transform:translateY(-5px) scale(1.03);
+background:#6D7CFF;
+box-shadow:
+0 0 18px rgba(88,101,242,.55),
+0 0 35px rgba(88,101,242,.35);
+}
+
+.discord-btn:hover::before{
+left:140%;
+}
+
+.discord-btn i{
+margin-right:8px;
+transition:transform .35s ease;
+}
+
+.discord-btn:hover i{
+transform:rotate(-8deg) scale(1.15);
+}
+
+.social i{font-size:38px;color:#ff4d4d;margin-bottom:12px}
+.social {
+  color: #fff;
+  text-decoration: none;
+}
+
+.social h3,
+.social p {
+  color: #fff;
+}
+
+.social i {
+  color: #fff;
+}
+
+footer{text-align:center;padding:30px;color:#aaa}
+
+@media(max-width:768px){
+nav{padding:10px 18px}
+.hero{padding:110px 20px 60px;text-align:center;gap:35px}
+.hero-name{font-size:60px}
+.profile{width:220px;height:220px}
+.buttons{justify-content:center}
+}
+
+@media(max-width:480px){
+.music-btn{top:78px;right:16px;width:45px;height:45px}
+.hero-name{font-size:52px}
+.title{font-size:30px}
+nav ul{gap:12px}
+.nav-logo{font-size:30px}
+.nav-link{font-size:13px}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" class="music-btn">🔇</button>
+
+<video id="bg-video" autoplay muted loop playsinline>
+<source src="live-bg.mp4.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+<div class="cursor"></div>
+
+<nav>
+<a href="#about" class="nav-logo">Lexifer</a>
+<ul>
+<li><a class="nav-link" href="#about">About</a></li>
+<li><a class="nav-link" href="#downloads">Downloads</a></li>
+<li><a class="nav-link" href="#social">Social</a></li>
+</ul>
+</nav>
+
+<section class="hero" id="about">
+<div class="profile">
+<img src="ozturk.jpg" alt="Lexifer">
+</div>
+
+<div>
+<h1 class="hero-name">Lexifer</h1>
+<p class="tagline">LEXI MGR INXIDE • XD</p>
+<p>Welcome - Download my recommended emulators, PC optimization tools, game mods, and join the community.</p>
+
+<div class="buttons">
+<a href="#downloads" class="btn primary">Downloads</a>
+<a href="#social" class="btn secondary">Join Community</a>
+</div>
+</div>
+</section>
+
+<section id="downloads"><h2 class="title">DOWNLOAD HUB</h2><div class="download-grid"><div class="card featured-card"><div class="featured-icon"><i class="fas fa-gamepad"></i></div><span class="badge">🔥 FEATURED</span><h3>MSI App Player</h3><p>Play Free Fire with smoother FPS, better controls, and optimized performance.</p><a class="download-btn featured-btn" href="https://www.mediafire.com/file/wq267mci6d9gi3b/LEXIFER_EMU.rar/file" target="_blank"><i class="fas fa-download"></i> Download MSI App Player</a><a class="download-btn featured-btn" href="https://www.mediafire.com/file/uvkfdsjcfbqovde/BlueStacks_App_Player_v5.22.130.1019.exe/file" target="_blank"><i class="fas fa-download"></i> Download BlueStacks</a></div><div class="card featured-card"><div class="featured-icon"><i class="fas fa-gauge-high"></i></div><span class="badge">⚡ BOOST FPS</span><h3>PC Optimizer</h3><p>Boost FPS, reduce lag, clean Windows, and optimize your PC.</p><a class="download-btn featured-btn" href="https://www.mediafire.com/file/z8s24tt9gtorfwd/OPTIMIZE_FILES.rar/file" target="_blank"><i class="fas fa-download"></i> Download File</a> <a class="download-btn featured-btn" href="https://www.mediafire.com/file/ei62oimmrdmgvy1/48_otm_free.rar/file" target="_blank"><i class="fas fa-download"></i> Optimizer File2</a>  </div><div class="card featured-card"><div class="featured-icon"><i class="fas fa-cube"></i></div><span class="badge">🎯 LATEST PANELS</span><h3>Freefire Panels</h3><p>Join our Discord community for the latest updates.</p><a class="discord-btn" href="https://discord.gg/dE2DjUjuRB" target="_blank"><i class="fab fa-discord"></i> Join Lexifer XD</a></div></div></section>
+
+<section id="social">
+
+<h2 class="title">CONNECT WITH ME</h2>
+
+<div class="social-grid">
+
+<a class="social" href="https://www.tiktok.com/@darkaura_12" target="_blank">
+<i class="fab fa-tiktok"></i>
+<h3>TikTok</h3>
+<p>@darkaura_12</p>
+</a>
+
+<a class="social" href="https://www.instagram.com/lexiferforlife_?stkn=NGk4azBqMGV1M3Jp" target="_blank">
+<i class="fab fa-instagram"></i>
+<h3>Instagram</h3>
+<p>@lexiferforlife_</p>
+</a>
+
+<a class="social" href="https://discord.gg/XEGnc6uWgQ" target="_blank">
+<i class="fab fa-discord"></i>
+<h3>Discord</h3>
+<p>Join the Community</p>
+</a>
+
+</div>
+</section>
+
+<footer>© 2026 Lexi Hero | Have A Good Day Sweetie.</footer>
+
+<script>
+const c=document.querySelector(".cursor");
+window.addEventListener("mousemove",e=>{
+c.style.left=e.clientX-110+"px";
+c.style.top=e.clientY-110+"px";
+});
+
+const m=document.getElementById("bgMusic"),
+b=document.getElementById("musicBtn");
+
+m.volume=.35;
+
+window.addEventListener("load",()=>{
+m.play().then(()=>b.textContent="🎵").catch(()=>{});
+});
+
+b.onclick=()=>{
+if(m.paused){
+m.play();
+b.textContent="🎵";
+}else{
+m.pause();
+b.textContent="🔇";
+}
+}
+</script>
+
+</body>
+</html>
